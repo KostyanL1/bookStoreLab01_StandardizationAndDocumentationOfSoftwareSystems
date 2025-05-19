@@ -14,6 +14,30 @@ import { RegistrationPage } from "./components/pages/registration/RegistrationPa
 import { AuthenticationProvider } from "./authentication/AuthenticationProvider"
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
+import CookieConsent from "react-cookie-consent";
+
+function App() {
+    return (
+        <>
+
+
+            <CookieConsent
+                location="bottom"
+                buttonText="Приймаю"
+                declineButtonText="Відхилити"
+                enableDeclineButton
+                cookieName="svoi_cookie_consent"
+                style={{ background: "#2B373B" }}
+                buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                declineButtonStyle={{ color: "#fff", backgroundColor: "#555", fontSize: "13px" }}
+                expires={150}
+            >
+                Ми використовуємо файли cookie для покращення вашого досвіду користування. Приймаючи, ви погоджуєтесь з нашою політикою конфіденційності.
+            </CookieConsent>
+        </>
+    );
+}
+
 
 export const App = () => {
 
@@ -22,6 +46,8 @@ export const App = () => {
     return (
 
         <main className="relative">
+
+
 
             <AuthenticationProvider>
 
